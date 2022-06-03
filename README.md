@@ -1,24 +1,52 @@
-# README
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Blog app📝
 
-Things you may want to cover:
+This is the skeleton for a blog app created as a student in Microverse
 
-* Ruby version
+## Built With
 
-* System dependencies
+- Ruby
+- Ruby on Rails
 
-* Configuration
+## Getting Started
 
-* Database creation
+To get a local copy up and running follow these simple example steps.
 
-* Database initialization
+- git clone `https://github.com/Thi-Ponce/blog-app.git`
 
-* How to run the test suite
+- change to the directory using `cd blog-app`
 
-* Services (job queues, cache servers, search engines, etc.)
+- open with your preffered code editor.
 
-* Deployment instructions
+## Running the project
 
-* ...
+To run the project,
+
+- Navigate to the root directory of the project `cd blog-app`
+- run `rails s`
+
+## Authors:
+
+👤 **Thiago Allan Porro Ponce**
+
+- GitHub: [@Thi-Ponce](https://github.com/Thi-Ponce)
+- Twitter: [@Thi_ponce](https://twitter.com/Thi_ponce)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/thiago-ponce)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Microverse: [microverse community](https://github.com/microverseinc)
+- All the friends that helped me along the way.
+
+## 📝 License
+
+This project is [MIT](./LICENSE.md) licensed.
