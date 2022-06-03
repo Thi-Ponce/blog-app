@@ -19,6 +19,8 @@ To get a local copy up and running follow these simple example steps.
 
 - open with your preffered code editor.
 
+- remember to use commands to install all necessary gems and requirements such as: `bundle install`, `rails db:create`, `rails db:migrate`, and `yarn install` or `npm install`
+
 ## Running the project
 
 To run the project,
