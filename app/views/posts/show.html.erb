@@ -5,10 +5,17 @@
     <p class="post-numbers">Comments: <%= @post.comments_counter || 0%>, Likes: <%= @post.likes_counter|| 0 %></p>
     </div>
     <p><%= @post.text %></p>
+    <%= form_with url: "#{@post.id}/likes", method: :post do |form| %>
+      <%= form.submit "Like", class: 'like-btn' %>
+    <% end %>
   </div>
   <ul class="comment-list">
       <% @post.comments.each do |comment| %>
         <li class="comment-post"><%= comment.author.name %>: <%= comment.text %></li>
       <% end %>
     </ul>
+     <%= form_with url: comments_url, scope: :comment, class: 'cmt-form' do |f| %>
+    <%= f.text_area :text, placeholder: 'Write a comment...' %>
+    <%= f.submit "Add comment" %> 
+  <% end %>
 </section>

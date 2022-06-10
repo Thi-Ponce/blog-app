@@ -21,4 +21,12 @@
       <% end %>
       </div>
       <% end %>
+      <div class="new-post-container">
+        <h2 class="new-post-label">Create a new post:</h2>
+        <%= form_with model: @post, class: 'new-post-form' do |form| %>
+        <%= form.text_field :title, placeholder: 'Title', class: 'new-post-title' %>
+        <%= form.text_area :text, placeholder: 'Write your post here', class: 'new-post-text' %>
+        <%= form.submit "Submit", class: 'new-post-btn' %>
+        <% end %>
+      </div>
 </section>

@@ -159,3 +159,20 @@ a {
   width: 590px;
   margin-right: 2.5rem;
 }
+
+.new-post-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.new-post-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.cmt-form {
+  display: flex;
+  gap: 0.5rem;
+}
