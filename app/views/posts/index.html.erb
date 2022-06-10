@@ -1,3 +1,6 @@
+<% flash.each do |type, msg| %>
+<%= content_tag :div, msg, class: "#{type} alert" %>
+<% end %>
 <section class="user-post-list">
   <div class="user-container-index">
         <div class="img-user">
