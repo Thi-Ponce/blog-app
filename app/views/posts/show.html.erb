@@ -15,9 +15,13 @@
       <% end %>
     </ul>
     <div class="post-create">
-      <%= form_with url: "#{@post.id}/comments", scope: :comment, method: :post do |form| %>
+      <%
+=begin%>
+ <%= form_with url: "#{@post.id}/comments", scope: :comment, method: :post do |form| %>
     <%= form.text_area :text, placeholder: 'Write here', required: true %>
         <%= form.submit "Add comment" %> 
-      <% end %> 
+      <% end %>  
+<%
+=end%>
     </div>
 </section>

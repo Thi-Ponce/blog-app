@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show, :new] do
-      resources :comments, only: [:create]
-    end
+    resources :posts, only: [:index, :show, :new, :create]
   end
 
   post 'users/:user_id/posts', to: 'posts#create', as: 'posts'
