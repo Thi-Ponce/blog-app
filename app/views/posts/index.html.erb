@@ -1,1 +1,23 @@
 <h1>Here is the list of posts from this user</h1>
+<section class="user-post-list">
+  <div class="user-container">
+      <img src='<%= @user.photo %>' alt='user-picture'>
+      <p>
+        <%= @user.name %>
+      </p>
+      <p>Number of Posts: <%= @user.posts_counter %></p>
+    </div>
+    <div class="user-posts">
+      <% @user.most_recent.each_with_index do |post, index| %>
+      <div class="post-card">
+      <%= link_to post.title, user_post_path(user_id: @user.id, id: post.id) %>
+      <p><%= post.short_text %></p>
+      <p class="cmts-likes">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></p>
+      </div>
+      <div class="comments">
+      <% post.most_recent.each do |comment| %>
+      <li><%= comment.user.name %>: <%= comment.text %></li>
+      <% end %>
+      </div>
+      <% end %>
+</section>
