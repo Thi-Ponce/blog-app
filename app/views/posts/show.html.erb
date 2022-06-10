@@ -13,7 +13,7 @@
     <% end %>
   </div>
   <ul class="comment-list">
-      <% @post.comments.each do |comment| %>
+      <% @post.comments.includes([:author]).each do |comment| %>
         <li class="comment-post"><%= comment.author.name %>: <%= comment.text %></li>
       <% end %>
     </ul>
