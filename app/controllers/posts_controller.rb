@@ -8,17 +8,18 @@ class PostsController < ApplicationController
   def show
     post_id = params[:id].to_i
     @post = Post.find(post_id)
-    @user = User.find(params[:user_id])
+    @user = User.find(params[:id].to_i)
   end
 
   def new
-    @user = User.find(params[:user_id])
     @post = Post.new
+    @user = User.find(params[:user_id])
   end
 
   def create
     @user = User.find(params[:user_id])
-    @post = current_user.posts.new(post_params)
+
+    @post = current_user.posts.new(params.require(:post).permit(:title, :text))
     if @post.save
       flash[:success] = 'Post created!'
       redirect_to user_post_path(@user, @post)
@@ -26,11 +27,5 @@ class PostsController < ApplicationController
       flash[:error] = 'Post not created!'
       redirect_to "/users/#{@user.id}/posts"
     end
-  end
-
-  private
-
-  def post_params
-    params.permit(:title, :text)
   end
 end
