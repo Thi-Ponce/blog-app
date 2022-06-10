@@ -12,15 +12,15 @@ class PostsController < ApplicationController
   end
 
   def new
-    @user = User.find(params[:user_id])
+    @current_user_id = current_user.id.to_i
     @post = Post.new
   end
 
   def create
     @user = User.find(params[:user_id])
-    @post = current_user.posts.new(post_params)
+
+    @post = current_user.posts.new(params.permit(:title, :text))
     if @post.save
-      flash[:success] = 'Post created!'
       redirect_to user_post_path(@user, @post)
     else
       flash[:error] = 'Post not created!'
