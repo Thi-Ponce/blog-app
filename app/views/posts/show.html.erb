@@ -14,14 +14,8 @@
         <li class="comment-post"><%= comment.author.name %>: <%= comment.text %></li>
       <% end %>
     </ul>
-    <div class="post-create">
-      <%
-=begin%>
- <%= form_with url: "#{@post.id}/comments", scope: :comment, method: :post do |form| %>
-    <%= form.text_area :text, placeholder: 'Write here', required: true %>
-        <%= form.submit "Add comment" %> 
-      <% end %>  
-<%
-=end%>
-    </div>
+     <%= form_with url: comments_url, scope: :comment do |f| %>
+    <%= f.text_area :text, placeholder: 'Write a comment...' %>
+    <%= f.submit "Add comment" %> 
+  <% end %>
 </section>
