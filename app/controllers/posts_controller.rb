@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @current_user_id = current_user.id.to_i
+    @user = User.find(params[:user_id])
   end
 
   def create

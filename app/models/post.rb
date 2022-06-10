@@ -17,6 +17,12 @@ class Post < ApplicationRecord
 
   after_save :update_counter
 
+  validates_associated :author
+  validates :title, length: { in: 1..250, message: "the title should not exceed 250 char" }
+  validates :text, presence: true
+  validates :likes_counter, comparison: { greater_than_or_equal_to: 0 }
+  validates :comments_counter, comparison: { greater_than_or_equal_to: 0 }
+
   private
 
   def update_counter
