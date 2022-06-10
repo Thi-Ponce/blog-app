@@ -1,22 +1,23 @@
-<h1>Here is the list of posts from this user</h1>
 <section class="user-post-list">
-  <div class="user-container">
-      <img src='<%= @user.photo %>' alt='user-picture'>
-      <p>
-        <%= @user.name %>
-      </p>
-      <p>Number of Posts: <%= @user.posts_counter %></p>
-    </div>
+  <div class="user-container-index">
+        <div class="img-user">
+        <img src='<%= @user.photo %>' alt='user-picture'>
+        </div>
+        <div class="user-info">
+        <h3 class="user-name"><%= @user.name %></h3>
+          <p class="user-numbers">Number of Posts: <%= @user.posts_counter || 0 %></p>
+        </div>
+      </div>
     <div class="user-posts">
       <% @user.most_recent.each_with_index do |post, index| %>
       <div class="post-card">
-      <%= link_to post.title, user_post_path(user_id: @user.id, id: post.id) %>
-      <p><%= post.short_text %></p>
-      <p class="cmts-likes">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></p>
+      <%= link_to post.title, user_post_path(user_id: @user.id, id: post.id), class: "post-title" %>
+      <p class="post-text"><%= post.short_text %></p>
+      <p class="cmts-likes">Comments: <%= post.comments_counter || 0 %>, Likes: <%= post.likes_counter || 0 %></p>
       </div>
-      <div class="comments">
+      <div class="comment-list">
       <% post.most_recent.each do |comment| %>
-      <li><%= comment.user.name %>: <%= comment.text %></li>
+      <li class="comment"><%= comment.author.name %>: <%= comment.text %></li>
       <% end %>
       </div>
       <% end %>
