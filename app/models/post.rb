@@ -23,7 +23,6 @@ class Post < ApplicationRecord
 
   after_save :update_counter
 
-
   private
 
   def update_counter
