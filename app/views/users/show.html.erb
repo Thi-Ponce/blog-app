@@ -1,1 +1,24 @@
 <h1>Here is the data from this user:</h1>
+<div class="user-card">
+  <div class="user-container">
+      <img src='<%= @user.photo %>' alt='user-picture'>
+      <p>
+        <%= link_to user.name, user_path(id: user.id) %>
+      </p>
+      <p>Number of Posts: <%= user.posts_counter %></p>
+      </div>
+    <div class="user-bio">
+      <p>Bio:<br/> <%= @user.bio %></p>
+    </div>
+    <div class="user-posts">
+      <% @user.most_recent.each_with_index do |post, index| %>
+      <div class="post-card">
+      <%= link_to post.title, user_post_path(user_id: @user.id, id: post.id) %>
+      <p><%= post.short_text %></p>
+      <p class="cmts-likes">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter 0 %></p>
+      </div>
+      <% end %>
+    </div>
+</div>
+
+<%= link_to 'See all posts', user_posts_path(user_id: @user.id), class: "btn-all-posts" %>
