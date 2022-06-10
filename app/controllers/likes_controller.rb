@@ -1,10 +1,12 @@
 class LikesController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
+    return if @post.liked?(current_user)
 
-    @like = Like.create(author_id: current_user.id, post_id: @post.id)
+    @like = @post.likes.new
+    @like.author = current_user
 
-     if @post.liked?(current_user)
+     if @like.save
       flash[:success] = 'Liked!'
      else
       flash[:error] = 'ERROR!'

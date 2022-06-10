@@ -7,7 +7,6 @@ class Comment < ApplicationRecord
   validates_associated :post, :author
   validates :text, presence: true
 
-
   private
 
   def update_counter

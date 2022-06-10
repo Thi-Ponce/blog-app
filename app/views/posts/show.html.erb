@@ -1,3 +1,6 @@
+<% flash.each do |type, msg| %>
+<%= content_tag :div, msg, class: "#{type} alert" %>
+<% end %>
 <section class="post">
   <div class="post-container">
     <div class="post-header">
@@ -14,7 +17,7 @@
         <li class="comment-post"><%= comment.author.name %>: <%= comment.text %></li>
       <% end %>
     </ul>
-     <%= form_with url: comments_url, scope: :comment, class: 'cmt-form' do |f| %>
+     <%= form_with url:  "#{@post.id}/comments", scope: :comment, class: 'cmt-form' do |f| %>
     <%= f.text_area :text, placeholder: 'Write a comment...' %>
     <%= f.submit "Add comment" %> 
   <% end %>
