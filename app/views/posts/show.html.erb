@@ -14,7 +14,7 @@
         <li class="comment-post"><%= comment.author.name %>: <%= comment.text %></li>
       <% end %>
     </ul>
-     <%= form_with url: comments_url, scope: :comment do |f| %>
+     <%= form_with url: comments_url, scope: :comment, class: 'cmt-form' do |f| %>
     <%= f.text_area :text, placeholder: 'Write a comment...' %>
     <%= f.submit "Add comment" %> 
   <% end %>
