@@ -1,1 +1,28 @@
-<h1>Here is the data from this user:</h1>
+<section class="user-show">
+  <div class="user-card">
+    <div class="user-container">
+      <div class="user-container-index">
+        <div class="img-user">
+        <img src='<%= @user.photo %>' alt='user-picture'>
+        </div>
+        <div class="user-info">
+        <h3 class="user-name"><%= @user.name %></h3>
+          <p class="user-numbers">Number of Posts: <%= @user.posts_counter || 0 %></p>
+        </div>
+      </div>
+      <div class="user-bio">
+        <p class="bio-header">Bio:<br/></p>
+        <div class="bio-text"><%= @user.bio %></div>
+      </div>
+      <div class="user-posts">
+        <% @user.most_recent.each_with_index do |post, index| %>
+        <div class="post-card">
+        <%= link_to post.title, user_post_path(user_id: @user.id, id: post.id), class: "post-title" %>
+        <p class="post-text"><%= post.short_text %></p>
+        <p class="cmts-likes">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter || 0 %></p>
+        </div>
+        <% end %>
+      </div>
+  </div>
+  <%= link_to 'See all posts', user_posts_path(user_id: @user.id), class: "btn-all-posts" %>
+</section>

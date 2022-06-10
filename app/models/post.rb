@@ -7,6 +7,10 @@ class Post < ApplicationRecord
     comments.order(created_at: :desc).limit(5)
   end
 
+  def short_text
+    text.truncate(75)
+  end
+
   after_save :update_counter
 
   private
