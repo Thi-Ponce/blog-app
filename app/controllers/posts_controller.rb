@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
 
-    @post = current_user.posts.new(params.require(:post).permit(:title, :text))
+    @post = current_user.posts.new(comment_params)
     if @post.save
       flash[:success] = 'Post created!'
       redirect_to user_post_path(@user, @post)
@@ -27,5 +27,11 @@ class PostsController < ApplicationController
       flash[:error] = 'Post not created!'
       redirect_to "/users/#{@user.id}/posts"
     end
+  end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:text)
   end
 end
