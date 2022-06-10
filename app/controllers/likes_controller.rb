@@ -4,6 +4,11 @@ class LikesController < ApplicationController
 
     @like = Like.create(author_id: current_user.id, post_id: @post.id)
 
-    redirect_back_or_to(@post) if @post.liked?(current_user)
+     if @post.liked?(current_user)
+      flash[:success] = 'Liked!'
+     else
+      flash[:error] = 'ERROR!'
+    end
+   redirect_back_or_to(@post)
   end
 end

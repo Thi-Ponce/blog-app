@@ -21,9 +21,11 @@ class PostsController < ApplicationController
 
     @post = current_user.posts.new(params.permit(:title, :text))
     if @post.save
+      flash[:success] = 'Post created!'
       redirect_to user_post_path(@user, @post)
     else
-      render :new
+      flash[:error] = 'Post not created!'
+      redirect_to "/users/#{@user.id}/posts/new"
     end
   end
 end

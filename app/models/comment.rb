@@ -4,7 +4,7 @@ class Comment < ApplicationRecord
 
   after_save :update_counter
 
-  validates_associated :post
+  validates_associated :post, :author
   validates :text, presence: true
 
 

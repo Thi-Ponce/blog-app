@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :comments, foreign_key: 'author_id', dependent: :destroy
 
   validates :posts_counter, comparison: { greater_than_or_equal_to: 0 }
+  validates :name, presence: true
 
   def most_recent
     posts.order(created_at: :desc).limit(3)
