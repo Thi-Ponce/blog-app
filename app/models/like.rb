@@ -8,8 +8,6 @@ class Like < ApplicationRecord
     likes.where(user_id: user.id).any?
   end
 
-  validates_associated :post, :author
-
   private
 
   def update_counter

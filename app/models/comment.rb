@@ -4,9 +4,6 @@ class Comment < ApplicationRecord
 
   after_save :update_counter
 
-  validates_associated :post, :author
-  validates :text, presence: true
-
   private
 
   def update_counter
