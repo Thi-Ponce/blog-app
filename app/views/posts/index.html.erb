@@ -1,3 +1,6 @@
+<% flash.each do |type, msg| %>
+<%= content_tag :div, msg, class: "#{type} alert" %>
+<% end %>
 <section class="user-post-list">
   <div class="user-container-index">
         <div class="img-user">
@@ -16,17 +19,10 @@
       <p class="cmts-likes">Comments: <%= post.comments_counter || 0 %>, Likes: <%= post.likes_counter || 0 %></p>
       </div>
       <div class="comment-list">
-      <% post.most_recent.each do |comment| %>
+      <% post.most_recent.includes([:author]).each do |comment| %>
       <li class="comment"><%= comment.author.name %>: <%= comment.text %></li>
       <% end %>
       </div>
       <% end %>
-      <div class="new-post-container">
-        <h2 class="new-post-label">Create a new post:</h2>
-        <%= form_with model: @post, class: 'new-post-form' do |form| %>
-        <%= form.text_field :title, placeholder: 'Title', class: 'new-post-title' %>
-        <%= form.text_area :text, placeholder: 'Write your post here', class: 'new-post-text' %>
-        <%= form.submit "Submit", class: 'new-post-btn' %>
-        <% end %>
-      </div>
+      <%= link_to 'New Post', new_user_post_path(user_id: @user.id), class: 'new-post-btn' %>
 </section>

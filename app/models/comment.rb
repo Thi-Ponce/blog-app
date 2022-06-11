@@ -3,6 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :post, class_name: 'Post'
 
   after_save :update_counter
+  validates :text, presence: true
 
   private
 
