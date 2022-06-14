@@ -21,6 +21,9 @@
       <div class="comment-list">
       <% post.most_recent.includes([:author]).each do |comment| %>
       <li class="comment"><%= comment.author.name %>: <%= comment.text %></li>
+      <% if can? :manage, Post %>
+        <%= link_to "Delete", user_path, method: :delete %>   
+      <% end %> 
       <% end %>
       </div>
       <% end %>

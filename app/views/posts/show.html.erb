@@ -11,17 +11,17 @@
     <%= form_with url: "#{@post.id}/likes", method: :post do |form| %>
       <%= form.submit "Like", class: 'like-btn' %>
     <% end %>
-    <% if can? :manage, Post %>
-    <%= link_to "Delete", user_path, method: :delete %>   
+    <% if can? :manage, @post %>
+    <%= button_to "Delete", user_post_path(@user, @post), method: :delete %>   
     <% end %> 
   </div>
   <ul class="comment-list">
       <% @post.comments.includes([:author]).each do |comment| %>
         <li class="comment-post"><%= comment.author.name %>: <%= comment.text %> </li>
       <% end %>
-      <% if can? :manage, Comment %>
-       <%= link_to "Delete", user_path, method: :delete %>
-      <% end %>
+      <% if can? :manage, @comment %>
+       <%= button_to "Delete", user_post_comments_path(@comment.user, @post, @comment), method: :delete %>
+      <% end %> 
     </ul>
      <%= form_with url:  "#{@post.id}/comments", scope: :comment, class: 'cmt-form' do |f| %>
     <%= f.text_area :text, placeholder: 'Write a comment...' %>
