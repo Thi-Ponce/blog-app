@@ -190,3 +190,28 @@ a {
   display: flex;
   gap: 0.5rem;
 }
+
+.field {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.field-remember {
+  margin: 0.5rem;
+  padding-left: 2.7rem;
+}
+
+.actions {
+  padding-left: 5.7rem;
+}
+
+.shared-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+}
