@@ -9,6 +9,20 @@ a {
   font-weight: bold;
 }
 
+.navbar {
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+}
+
+.devise-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .user-list {
   display: flex;
   flex-direction: column;
@@ -175,4 +189,29 @@ a {
 .cmt-form {
   display: flex;
   gap: 0.5rem;
+}
+
+.field {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.field-remember {
+  margin: 0.5rem;
+  padding-left: 2.7rem;
+}
+
+.actions {
+  padding-left: 5.7rem;
+}
+
+.shared-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
 }
