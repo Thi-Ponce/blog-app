@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'users#index'
   devise_for :users
 
   resources :users, only: [:index, :show] do
@@ -10,5 +11,4 @@ Rails.application.routes.draw do
   post 'users/:user_id/posts', to: 'posts#create', as: 'posts'
   post 'users/:user_id/posts/:post_id/likes', to: 'likes#create', as: 'likes'
   post 'users/:user_id/posts/:id/comments', to: 'comments#create', as: 'comments'
-   root "users#index"
 end
