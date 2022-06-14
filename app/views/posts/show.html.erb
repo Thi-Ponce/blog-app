@@ -11,6 +11,7 @@
     <%= form_with url: "#{@post.id}/likes", method: :post do |form| %>
       <%= form.submit "Like", class: 'like-btn' %>
     <% end %>
+    <%= link_to "Delete", post, :confirm => "Are you sure?", method: :delete %>    
   </div>
   <ul class="comment-list">
       <% @post.comments.includes([:author]).each do |comment| %>
