@@ -11,15 +11,15 @@
     <%= form_with url: "#{@post.id}/likes", method: :post do |form| %>
       <%= form.submit "Like", class: 'like-btn' %>
     <% end %>
-    <%= link_to "Delete", post, :confirm => "Are you sure?", method: :delete %>    
+    <%= link_to "Delete", user_post_path, method: :delete %>    
   </div>
   <ul class="comment-list">
       <% @post.comments.includes([:author]).each do |comment| %>
-        <li class="comment-post"><%= comment.author.name %>: <%= comment.text %></li>
+        <li class="comment-post"><%= comment.author.name %>: <%= comment.text %> <%= link_to "Delete", "#{@post.id}", method: :delete %> </li>
       <% end %>
     </ul>
      <%= form_with url:  "#{@post.id}/comments", scope: :comment, class: 'cmt-form' do |f| %>
     <%= f.text_area :text, placeholder: 'Write a comment...' %>
-    <%= f.submit "Add comment" %> 
+    <%= f.submit "Add comment" %>
   <% end %>
 </section>
