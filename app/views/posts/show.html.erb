@@ -18,7 +18,9 @@
   <ul class="comment-list">
       <% @post.comments.includes([:author]).each do |comment| %>
         <li class="comment-post"><%= comment.author.name %>: <%= comment.text %> <%= comment.id %> </li>
-        <%= button_to "Delete", user_post_comments_path(comment.author, @post, @comment), method: :delete %>
+        <% if can? :manage, @post %>
+          <%= button_to "Delete", user_post_comments_path(comment.author, @post, @comment), method: :delete %>
+        <% end %> 
       <% end %>
     </ul>
      <%= form_with url:  "#{@post.id}/comments", scope: :comment, class: 'cmt-form' do |f| %>
