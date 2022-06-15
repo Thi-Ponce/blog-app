@@ -17,7 +17,7 @@
   </div>
   <ul class="comment-list">
       <% @post.comments.includes([:author]).each do |comment| %>
-        <li class="comment-post"><%= comment.author.name %>: <%= comment.text %> <%= comment.id %> </li>
+        <li class="comment-post"><%= comment.author.name %>: <%= comment.text %> </li>
         <% if can? :manage, @post %>
           <%= button_to "Delete", user_post_comments_path(comment.author, @post, @comment), method: :delete %>
         <% end %> 
