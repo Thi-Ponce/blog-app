@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   def index
     user_id = params[:user_id].to_i
     @user = User.find(user_id)
@@ -8,7 +9,8 @@ class PostsController < ApplicationController
   def show
     post_id = params[:id].to_i
     @post = Post.find(post_id)
-    @user = User.find(params[:id].to_i)
+    user_id = params[:user_id].to_i
+    @user = User.find(user_id)
   end
 
   def new
@@ -27,6 +29,13 @@ class PostsController < ApplicationController
       flash[:error] = 'Post not created!'
       redirect_to "/users/#{@user.id}/posts"
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    flash[:notice] = 'Post destroyed!'
+    redirect_to root_path
   end
 
   private

@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :likes
 
   validates_associated :author
@@ -21,11 +21,16 @@ class Post < ApplicationRecord
     likes.where(author_id: user.id).any?
   end
 
+  before_destroy :decrement_user_posts_counter
   after_save :update_counter
 
   private
 
   def update_counter
     author.increment!(:posts_counter)
+  end
+
+  def decrement_user_posts_counter
+    author.decrement!(:posts_counter)
   end
 end
