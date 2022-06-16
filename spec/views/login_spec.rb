@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'login', type: :feature do
   before(:each) do
+    User.create(name: 'Thiago', email: 't@t.com', password: '123456', confirmed_at: Time.now)
     visit new_user_session_path
   end
 
@@ -25,7 +26,7 @@ RSpec.describe 'login', type: :feature do
 
   it 'When I click the submit button after filling in the username and the password with correct data, I am redirected to the root page.' do
     fill_in 'Email', with: 't@t.com'
-    fill_in 'Password', with: '654321'
+    fill_in 'Password', with: '123456'
     click_button 'Log in'
     expect(page.current_path).to eql(root_path)
   end

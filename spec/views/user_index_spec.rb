@@ -23,7 +23,7 @@ RSpec.describe 'Users', type: :system do
     end
 
     it 'I can see the profile picture for each user' do
-      expect(page).to have_selector('img', count: 2)
+      expect(page).to include('img-user', count: 2)
     end
 
     it "I can see the number of posts each user has written." do
