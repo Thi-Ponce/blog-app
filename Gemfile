@@ -1,15 +1,17 @@
-source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-
 # ruby '2.7.5'
 ruby '3.1.2'
+
+# bullet gem
+gem 'bullet', group: 'development'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.3'
 
-gem 'cancancan', '~> 1.9'
-
+# Devise gem
 gem 'devise', '~> 4.8', '>= 4.8.1'
+
+# Cancancan gem
+gem 'cancancan'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
@@ -23,8 +25,6 @@ gem 'puma', '~> 5.0'
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'importmap-rails'
 
-gem 'letter_opener', group: :development
-
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem 'turbo-rails'
 
@@ -34,7 +34,6 @@ gem 'stimulus-rails'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
 
-gem 'bullet', group: 'development'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -63,9 +62,9 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   # Add Gem for testing
   gem 'ffi'
+  gem 'letter_opener', '~> 1.4', '>= 1.4.1'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 6.0.0.rc1'
-  gem "database_cleaner"
 end
 
 group :development do

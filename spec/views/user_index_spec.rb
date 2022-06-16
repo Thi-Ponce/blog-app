@@ -11,7 +11,6 @@ RSpec.describe 'Users', type: :system do
           password: '123456', posts_counter: 5, role: 1, confirmed_at: DateTime.now)
 
       visit new_user_session_path
-
       fill_in 'Email', with: 'r@r.com'
       fill_in 'Password', with: '123456'
       click_button 'Log in'
