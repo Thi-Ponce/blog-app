@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Posts show', type: :system, js: true do
   before :each do
     @test = User.create(id: 1, name: 'Thiago', bio: 'testing', password: '123456',
-        email: 't@t.com', posts_counter: 4, confirmed_at: Time.now)
+                        email: 't@t.com', posts_counter: 4, confirmed_at: Time.now)
 
     @test1 = Post.create(id: 1, author_id: 1, comments_counter: 2, likes_counter: 5,
                          title: 'Hello1', text: 'This is my first test', created_at: Time.now)

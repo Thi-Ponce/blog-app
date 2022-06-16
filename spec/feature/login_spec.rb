@@ -12,22 +12,25 @@ RSpec.describe 'login', type: :feature do
     expect(page).to have_button('Log in')
   end
 
-  it 'When I click the submit button without filling in the username and the password, I get a detailed error.' do
+  it 'When I click the submit button without filling in the
+  username and the password, I get a detailed error.' do
     click_button 'Log in'
     expect(page).to have_content('Invalid Email or password')
   end
 
-  it 'When I click the submit button after filling in the username and the password with incorrect data, I get a detailed error.' do
+  it 'When I click the submit button after filling in the username
+  and the password with incorrect data, I get a detailed error.' do
     fill_in 'Email', with: 'notanemail'
     fill_in 'Password', with: '12345678'
     click_button 'Log in'
     expect(page).to have_content('Invalid Email or password')
   end
 
-  it 'When I click the submit button after filling in the username and the password with correct data, I am redirected to the root page.' do
+  it 'When I click the submit button after filling in the username
+  and the password with correct data, I am redirected to the root page.' do
     fill_in 'Email', with: 't@t.com'
     fill_in 'Password', with: '123456'
     click_button 'Log in'
     expect(page.current_path).to eql(root_path)
   end
-end 
+end

@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'user_show', type: :feature do
   before(:each) do
-    @user1 = User.create(id: 1, name: 'Thiago', email: 't@t.com', bio:'test',
-      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',password: '654321', role: 1,
-      confirmed_at: DateTime.now)
+    @user1 = User.create(id: 1, name: 'Thiago', email: 't@t.com', bio: 'test',
+                         photo: 'https://unsplash.com/photos/F_-0BxGuVvo', password: '654321', role: 1,
+                         confirmed_at: DateTime.now)
 
-    @user2 = User.create(id: 2, name: 'Richard', email: 'r@r.com', bio:'test',
-        photo: 'https://unsplash.com/photos/F_-0BxGuVvo', password: '123456', role: 0,
-        confirmed_at: DateTime.now)
+    @user2 = User.create(id: 2, name: 'Richard', email: 'r@r.com', bio: 'test',
+                         photo: 'https://unsplash.com/photos/F_-0BxGuVvo', password: '123456', role: 0,
+                         confirmed_at: DateTime.now)
 
     @first_post = Post.create(id: 1, author_id: 1, title: 'test1', text: 'text')
     @second_post = Post.create(id: 2, author_id: 1, title: 'test2', text: 'text')

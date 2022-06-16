@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe 'Users', type: :system do
   describe 'index' do
     before(:each) do
-        User.create(name: 'Thiago', 
-          photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Test.', email: 't@t.com',
-          password: '654321', posts_counter: 5, role: 0, confirmed_at: DateTime.now)
-        User.create(name: 'Richard', 
-          photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Test.', email: 'r@r.com',
-          password: '123456', posts_counter: 5, role: 1, confirmed_at: DateTime.now)
+      User.create(name: 'Thiago',
+                  photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Test.', email: 't@t.com',
+                  password: '654321', posts_counter: 5, role: 0, confirmed_at: DateTime.now)
+      User.create(name: 'Richard',
+                  photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Test.', email: 'r@r.com',
+                  password: '123456', posts_counter: 5, role: 1, confirmed_at: DateTime.now)
 
       visit new_user_session_path
       fill_in 'Email', with: 'r@r.com'
@@ -25,7 +25,7 @@ RSpec.describe 'Users', type: :system do
       expect(page).to include('img-user', count: 2)
     end
 
-    it "I can see the number of posts each user has written." do
+    it 'I can see the number of posts each user has written.' do
       expect(page).to have_content('Posts: 5')
     end
 
