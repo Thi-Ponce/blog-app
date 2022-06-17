@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: [:index, :show] do
         resources :posts, only: [:index, :show, :new, :destroy] do
-          resources :comments, only: [:create, :destroy]
+          resources :comments, only: [:create, :destroy, :index]
         end
       end
     end
