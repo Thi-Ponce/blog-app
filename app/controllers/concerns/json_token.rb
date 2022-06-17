@@ -2,13 +2,10 @@ require 'jwt'
 
 module TokenAuthorization
   class TokenClass
-    SECRET_KEY = Rails.application.secrets.secret_key_base.to_s
-    def self.encode(payload)
-     JWT.encode(payload, SECRET_KEY)
+    HMAC_SECRET = 'my$secret'.freeze
+    def self.call(email, password)
+      payload = { email:, password: }
+      JWT.encode payload, HMAC_SECRET, 'HS256'
     end
-
-    def self.decode(token)
-      JWT.decode(token, SECRET_KEY)
-    end
-  end
+  end  
 end
