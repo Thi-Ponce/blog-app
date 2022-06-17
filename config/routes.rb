@@ -2,6 +2,16 @@ Rails.application.routes.draw do
   root to: 'users#index'
   devise_for :users
 
+  namespace :api do
+    namespace :v1 do
+      resources :users, only: [:index, :show] do
+        resources :posts, only: [:index, :show, :new, :destroy] do
+          resources :comments, only: [:create, :destroy]
+        end
+      end
+    end
+  end
+
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :show, :new, :destroy] do
       resources :comments, only: [:create, :destroy]
