@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      devise_for :users, as: 'api', controllers: { sessions: 'api/sessions', registrations: 'api/v1/registrations' }
       resources :users, only: [:index, :show] do
         resources :posts, only: [:index, :show, :new, :destroy] do
           resources :comments, only: [:create, :destroy, :index]
