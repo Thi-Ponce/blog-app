@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
   enum role: %i[user admin]
   after_initialize :set_default_role, if: :new_record?
+  after_save :user_token
   def set_default_role
     self.role ||= :user
   end
@@ -17,5 +18,9 @@ class User < ApplicationRecord
 
   def most_recent
     posts.order(created_at: :desc).limit(3)
+  end
+
+  def user_token
+    update_column(:token, TokenAuthorization::TokenClass.encode(email))
   end
 end
