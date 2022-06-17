@@ -7,7 +7,8 @@ module TokenAuthorization
      JWT.encode(payload, SECRET_KEY)
     end
 
-    def decode
+    def self.decode(token)
+      JWT.decode(token, SECRET_KEY)
     end
   end
 end
