@@ -36,6 +36,14 @@ To run the project,
 - Twitter: [@Thi_ponce](https://twitter.com/Thi_ponce)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/thiago-ponce)
 
+
+👤 **Richard Opiyo**
+
+- GitHub: [@richardoppiyo](https://github.com/richardoppiyo)
+- Twitter: [@blessed_ricky](https://twitter.com/blessed_ricky)
+- LinkedIn: [Richard Opiyo](https://linkedin.com/in/richardoppiyo)
+
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
