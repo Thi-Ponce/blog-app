@@ -1,3 +1,6 @@
+source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
 # ruby '2.7.5'
 ruby '3.1.2'
 
@@ -11,7 +14,7 @@ gem 'rails', '~> 7.0.3'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
 # Cancancan gem
-gem 'cancancan'
+gem 'cancancan', '~> 1.15'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
@@ -33,6 +36,7 @@ gem 'stimulus-rails'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
+gem 'jwt'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
